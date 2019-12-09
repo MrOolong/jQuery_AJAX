@@ -16,21 +16,18 @@
         $("#myBtn a").click(function (e) {
             var url = "test.txt";
             e.preventDefault();
-            console.log("clicked");
-            $("#output").load(url, function(responseText, status, xhr){
-                console.log(responseText);
-                console.log(status);
-                console.log(xhr);
-                if(status=="success"){
+            //console.log("clicked");
+            $.ajax(url,{
+                success:function(data){
+                    console.log(data);
                     $("#output").append("<br>It Works!");
+                },
+                error:function(data){
+                    console.log(data);
+                    $("#output").append("<br>"+data.statusText);
                 }
-                if(status=="error"){
-                    $("#output").append("<br>Error!");
-                }
-            });
-
+            })
         })
-
     })
     </script>
 </body>
