@@ -11,12 +11,21 @@
     <div id="output"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
+    $(document).ready(function(){
+
         $("#myBtn a").click(function (e) {
             var url = "test.txt";
             e.preventDefault();
             console.log("clicked");
-            $("#output").load(url); //load method calls the url variable to be loaded in the output div
+            $("#output").load(url, function(responseText, status, xhr){
+                console.log(responseText);
+                console.log(status);
+                console.log(xhr);
+            });
+
         })
+
+    })
     </script>
 </body>
 </html>
