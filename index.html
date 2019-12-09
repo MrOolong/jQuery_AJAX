@@ -21,6 +21,9 @@
                 console.log(responseText);
                 console.log(status);
                 console.log(xhr);
+                if(status=="success"){
+                    $("#output").append("<br>It Works!");
+                }
             });
 
         })
